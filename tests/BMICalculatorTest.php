@@ -15,7 +15,7 @@ class BMIcalculatorTest extends TestCase
     }
 
 
-    public function testUnderWeightBMITextResult()
+    public function testShowsUnderWeightWhenBMIIsUnder18()
     {
         $this->bmiCalculator->BMI = 10;
         
@@ -27,7 +27,7 @@ class BMIcalculatorTest extends TestCase
     }
 
 
-     public function testNormalWeightBMITestResult()
+     public function testShowsNormalWeightWhenBMIIsBetween18And25()
      {
         $this->bmiCalculator->BMI = 20;
 
@@ -40,7 +40,7 @@ class BMIcalculatorTest extends TestCase
      }
 
 
-     public function testOverWeightBMITestResult() {
+     public function testShowsOverWeightWhenBMIIsGreatherThen25() {
 
         $this->bmiCalculator->BMI = 26;
 
@@ -52,7 +52,7 @@ class BMIcalculatorTest extends TestCase
 
      }
 
-     public function testCorrectBMIValue() {
+     public function testShowsCalculateCorrectBMI() {
         $this->bmiCalculator->mass = 100;
         $this->bmiCalculator->height = 1.6;
 
