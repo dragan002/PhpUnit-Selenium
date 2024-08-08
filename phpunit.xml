@@ -7,7 +7,7 @@
          shortenArraysForExportThreshold="10"
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
-         colors="true"
+                  colors="true"
          testdox="true"
          failOnWarning="true">
     <testsuites>
