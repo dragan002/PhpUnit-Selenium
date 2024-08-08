@@ -6,7 +6,8 @@
     "autoload": {
         "classmap": [
             "src/",
-            "src/Exceptions"
+            "src/Exceptions",
+            "tests/traits"
         ]
     }
 }
