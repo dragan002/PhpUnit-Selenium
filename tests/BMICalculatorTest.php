@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 class BMIcalculatorTest extends TestCase
 {
+
     protected $bmiCalculator; 
     protected $result;
 
@@ -61,7 +62,8 @@ class BMIcalculatorTest extends TestCase
         $expected = 39.1;
 
         $this->assertEquals($expected, $this->result);
-     }
+
+        $this->assertEquals(constant('BASEURL'), 'http://localhost:8000');   }
 }
 
 // class BMICalculatorTest extends TestCase
