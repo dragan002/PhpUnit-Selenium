@@ -2,6 +2,8 @@
 
 namespace App;
 
+use WrongBMIDataException;
+
 class BMIcalculator 
 {
     public $BMI;
@@ -12,6 +14,7 @@ class BMIcalculator
 
     public function calculate()
     {
+        if($this->mass <= 0 || $this->height <= 0) throw new WrongBMIDataException('error message');
         return round($this->mass / pow($this->height, 2), 1);
     }
 
