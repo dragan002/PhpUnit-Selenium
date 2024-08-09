@@ -1,1 +1,1 @@
-{"version":1,"defects":{"UserTest::testValidUserName":7},"times":{"UserTest::testValidUserName":0.006}}
+{"version":1,"defects":{"UserTest::testValidUserName":7,"UserTest::testValidDataFormat":5},"times":{"UserTest::testValidUserName":0.006,"UserTest::testValidDataFormat":0.001}}

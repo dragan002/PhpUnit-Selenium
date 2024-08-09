@@ -2,9 +2,13 @@
 
 namespace App;
 
+use Database;
+
 class User {
 
     protected $name;
+
+    protected $db;
 
     private $lastName;
 
@@ -12,10 +16,13 @@ class User {
     {
         $this->name = ucfirst($name);
         $this->lastName = ucfirst($lastName);
+        $this->db = new Database;
     }
 
     public function getFullName()
     {
+        $this->db->getEmailAndLastName();
         return $this->name . ' ' . $this->lastName;
     }
+
 }
