@@ -2,7 +2,7 @@
 
 namespace App;
 
-class ShopingCart 
+class ShoppingCart 
 {
     public $cartItems = [];
 

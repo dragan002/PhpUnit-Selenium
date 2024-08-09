@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Fixture;
+namespace App\Tests\Fixture;
 
-use App\ShopingCart;
 use PHPUnit\Framework\TestCase;
-use tests\Traits\DatabaseTrait;
-use tests\Traits\ShoppingCartFixtureTrait;
+use App\Tests\Traits\DatabaseTrait;
+use App\Tests\Traits\ShoppingCartFixtureTrait;
 
-class ShopingCartTestWithTraitsTest extends TestCase {
-
+class ShoppingCartTestWithTraitsTest extends TestCase {
 
     use DatabaseTrait;
     use ShoppingCartFixtureTrait;

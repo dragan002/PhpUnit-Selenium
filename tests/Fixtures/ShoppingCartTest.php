@@ -1,16 +1,16 @@
 <?php
 
-use App\ShopingCart;
 use PHPUnit\Framework\TestCase;
 
-class ShopingCartTest extends TestCase
+class ShoppingCartTest extends TestCase
 {
 
     protected $cart;
     
     public function testCorrectNumberOfItems() 
     {
-        $this->cart->addItem('one');
+
+        $this->cart->addItem("ss");
 
         $expected = 1;
 

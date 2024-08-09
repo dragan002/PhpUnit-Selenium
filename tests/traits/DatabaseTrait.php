@@ -1,11 +1,10 @@
 <?php
 
-namespace tests\Traits;
+namespace App\Tests\Traits;
 
-trait DatabaseTrait {
-
+trait DatabaseTrait
+{
     protected $cart;
-
     protected static $db_connection = false;
 
     /**
@@ -13,19 +12,18 @@ trait DatabaseTrait {
      */
     public static function createDatabase()
     {
-        if(self::$db_connection) return;
-    
-        self::$db_connection = new \PDO("mysql:database.db");
+        if (self::$db_connection) {
+            return;
+        }
+        self::$db_connection = new \PDO('sqlite::database.db');
     }
 
     /**
      * @afterClass
      */
-
-     public static function deleteDatabase()
-     {
+    public static function deleteDatabase()
+    {
         self::$db_connection = null;
-        
         unlink(':database.db');
-     }
- }
+    }
+}

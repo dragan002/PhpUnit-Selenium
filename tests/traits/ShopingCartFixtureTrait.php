@@ -1,20 +1,20 @@
 <?php
 
 
-namespace tests\Traits;
+namespace App\Tests\Traits;
 
-use App\ShopingCart;
+use App\ShoppingCart;
 
-trait ShoppingCartFixtureTrait 
-{
+trait ShoppingCartFixtureTrait {
+
     protected $cart;
 
-    protected function setUp(): void 
+    protected function setUp(): void
     {
-        $this->cart = new ShopingCart();
+        $this->cart = new ShoppingCart();
     }
 
-    protected function tearDown(): void 
+    protected function tearDown(): void
     {
         unset($this->cart);
     }
