@@ -25,4 +25,9 @@ class User {
         return $this->name . ' ' . $this->lastName;
     }
 
+    private function hashedPassword()
+    {
+        return "hashed password";
+    }
+
 }

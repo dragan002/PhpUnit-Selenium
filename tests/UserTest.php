@@ -29,18 +29,45 @@ class UserTest extends TestCase
         $user = new User('donald', 'Trump');
         $mockedDb = new class extends Database {
             public function getEmailAndLastName() {
-                return "Mocked DB used";  // Return mock response.
+                return "Mocked DB used";
             }
         };
-
         $setUserClosure = function () use ($mockedDb) {
             $this->db = $mockedDb;
         };
-
-        // Bind the closure to the $user object and execute.
         $setUserClosure = $setUserClosure->bindTo($user, get_class($user));
         $setUserClosure();
 
-        $this->assertSame('Donald Trump', $user->getFullName());  // Ensure getFullName works as expected.
+        $this->assertSame('Donald Trump', $user->getFullName());
     }
+
+    public function testHashedPassword()
+    {
+        $user = new User('donald', 'trump');
+
+        $expected = "hashed password";
+
+        $phpunit = $this;
+
+        $assertClosure = function() use ($phpunit, $expected)
+        {
+            $phpunit->assertSame($expected, $this->hashedPassword());
+        };
+        $executeaAssertClosure = $assertClosure->bindTo($user, get_class($user));
+        $executeaAssertClosure();   
+    }
+
+    public function testHashedPassword2()
+    {
+        $user = new User('donald', 'trump');
+        $expected = "hashed password";
+
+        $reflection = new ReflectionClass($user);
+        $method = $reflection->getMethod('hashedPassword');
+        $method->setAccessible(true);
+
+        $actual = $method->invoke($user);  // Call the private/protected method
+        $this->assertSame($expected, $actual);
+    }
+
 }
