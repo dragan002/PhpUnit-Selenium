@@ -42,4 +42,17 @@ class ProductTest extends TestCase
         $result = $product->fetchProductById(1);
         $this->assertSame('product 2', $result);
     }
+
+    public function testIncompletedAndSkipped()
+    {
+        
+        if(!extension_loaded('xdebug'))
+        {
+            $this->markTestSkipped('xDebug Extension not available');
+        }  
+
+        $this->markTestIncomplete('This is not completed');
+    }
+
+
 }
