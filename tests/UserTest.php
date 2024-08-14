@@ -5,6 +5,9 @@ use App\User;  // Ensure User class is under the App namespace and correctly imp
 
 class Database 
 {
+
+
+
     public function getEmailAndLastName()
     {
         // Return a value for testable output.
@@ -14,6 +17,8 @@ class Database
 
 class UserTest extends TestCase
 {
+    use CustomAssertionTrait;
+
     public function testValidUserName()
     {
         $user = new class('donald', 'Trump') extends User {
@@ -68,6 +73,17 @@ class UserTest extends TestCase
 
         $actual = $method->invoke($user);  // Call the private/protected method
         $this->assertSame($expected, $actual);
+    }
+
+    public function testCustomDataStructure()
+    {
+        $data = [
+            'nick' => 'LUx',
+            'email' => 'donald@gmail.com',
+            'age' => 70,
+        ];
+
+        $this->assertArrayData($data);
     }
 
 }
