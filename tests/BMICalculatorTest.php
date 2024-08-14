@@ -1,9 +1,9 @@
 <?php
 
-use App\BMIcalculator;
+use App\BMICalculator;
 use PHPUnit\Framework\TestCase;
 
-class BMIcalculatorTest extends TestCase
+class BMICalculatorTest extends TestCase
 {
 
     protected $bmiCalculator; 
@@ -11,7 +11,7 @@ class BMIcalculatorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->bmiCalculator = new BMIcalculator();
+        $this->bmiCalculator = new BMICalculator();
 
     }
 

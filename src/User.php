@@ -30,4 +30,18 @@ class User {
         return "hashed password";
     }
 
+    public function someOperation($array)
+    {
+        $count = count($array);
+
+        if($count == 0 ) return "Error";
+
+        elseif($count == 1) {
+            if($array[0] == 0) return "Error";
+            else return "ok";
+        } else {
+            return "ok";
+        }
+    }
+
 }

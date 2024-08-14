@@ -17,8 +17,17 @@ class Database
 
 class UserTest extends TestCase
 {
+    public $user;
+
+    protected function setUp(): void
+    {
+        $this->user = new User('Donald', 'Trump');
+
+    }
+
     use CustomAssertionTrait;
 
+    
     public function testValidUserName()
     {
         $user = new class('donald', 'Trump') extends User {
@@ -86,4 +95,8 @@ class UserTest extends TestCase
         $this->assertArrayData($data);
     }
 
+    public function testSomeOperation() {
+        $this->assertEquals('ok', $this->user->someOperation([1,2,3]));
+        $this->assertEquals('ok', $this->user->someOperation([1]));
+    }
 }

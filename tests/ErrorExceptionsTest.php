@@ -1,6 +1,6 @@
 <?php
 
-use App\BMIcalculator;
+use App\BMICalculator;
 use PHPUnit\Framework\TestCase;
 
 class ErrorExceptionsTest extends TestCase 
@@ -14,7 +14,7 @@ class ErrorExceptionsTest extends TestCase
     public function testException() 
     {
         $this->expectException(WrongBMIDataException::class);
-        $BMIcalculator = new BMIcalculator;
+        $BMIcalculator = new BMICalculator;
 
         $BMIcalculator->mass = 2;
         $BMIcalculator->height = 0;

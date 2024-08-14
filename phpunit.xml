@@ -6,6 +6,7 @@
          executionOrder="depends,defects"
          shortenArraysForExportThreshold="10"
          beStrictAboutOutputDuringTests="false"
+         forceCoverAnnotation="false"
          failOnRisky="true"
                   colors="true"
          testdox="true"
@@ -13,10 +14,6 @@
     <testsuites>
         <testsuite name="default">
             <directory suffix="Test.php">tests</directory>
-        </testsuite>
-
-        <testsuite name="BMI">
-            <directory>tests/BMICalculatorTest.php</directory>
         </testsuite>
     </testsuites>
 

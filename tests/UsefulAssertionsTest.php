@@ -1,5 +1,5 @@
 <?php
-use App\BMIcalculator;
+use App\BMICalculator;
 use PHPUnit\Framework\TestCase;
 
 class UsefulAssertionsTest extends TestCase
@@ -68,7 +68,7 @@ class UsefulAssertionsTest extends TestCase
 
     public function testAssertInstanceOf()
     {
-        $this->assertInstanceOf(BMIcalculator::class, new BMIcalculator);
+        $this->assertInstanceOf(BMICalculator::class, new BMICalculator);
     }
 
     public function testAssertArrayHasKey() 

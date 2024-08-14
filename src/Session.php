@@ -2,6 +2,8 @@
 
 class Session implements SessionInterface {
 
+ 
+    // @codeCoverageIgnoreStart
     public function open()
     {
         echo "real opening session";
@@ -16,4 +18,6 @@ class Session implements SessionInterface {
     {
         echo "real writing to the session" . $product;
     }
+
+        // @codeCoverageIgnoreEnd
 }

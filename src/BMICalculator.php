@@ -4,7 +4,7 @@ namespace App;
 
 use WrongBMIDataException;
 
-class BMIcalculator 
+class BMICalculator 
 {
     public $BMI;
 
