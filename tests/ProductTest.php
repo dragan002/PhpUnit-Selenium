@@ -22,7 +22,11 @@ class ProductTest extends TestCase
 
         $product = new Product($session);
 
-        $this->assertSame('product 1', $product->fetchProductById(1));
+        $product->setLoggerCallable(function(){
+            echo " Real logger was not called";
+        });
+
+        $this->assertSame('product 2', $product->fetchProductById(1));
     }
 
     public function testProductSecond()
@@ -30,12 +34,12 @@ class ProductTest extends TestCase
         $session = $this->createMock(SessionInterface::class);
         $session->expects($this->once())
         ->method('write')
-        ->with($this->equalTo('product 1'))
+        ->with($this->equalTo('product 2'))
         ->willReturn('Mocked writting to the session');
 
         $product = new Product($session);
 
         $result = $product->fetchProductById(1);
-        $this->assertSame('product 1', $result);
+        $this->assertSame('product 2', $result);
     }
 }
