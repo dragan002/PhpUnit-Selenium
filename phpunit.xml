@@ -6,7 +6,6 @@
          executionOrder="depends,defects"
          shortenArraysForExportThreshold="10"
          beStrictAboutOutputDuringTests="false"
-         forceCoverAnnotation="false"
          failOnRisky="true"
                   colors="true"
          testdox="true"
