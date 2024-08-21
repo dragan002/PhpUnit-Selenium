@@ -8,4 +8,5 @@ trait MyTrait {
     {
         return $number + 10;
     }
+    
 }

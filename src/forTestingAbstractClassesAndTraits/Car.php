@@ -8,6 +8,6 @@ class Car extends CarAbstract {
     
     public function getPrice()
     {
-        return 4000;
+        return 100;
     }
 }
