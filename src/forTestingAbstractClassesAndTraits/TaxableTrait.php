@@ -6,6 +6,6 @@ trait TaxableTrait
 {
     public function calculateTax(float $rate): float
     {
-        return $this->getPrice * ($rate / 100);
+        return $this->getPrice() * ($rate / 100);
     }
 }

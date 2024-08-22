@@ -4,16 +4,16 @@ namespace forTestingAbstractClasseAndTraits;
 
 abstract class CarAbstract {
 
-    use TaxableTrait;
-
     protected $model;
     protected $year;
     protected $name;
+    protected $taxCalculator;
 
-    public function __construct(string $model, int $carYear)
+    public function __construct(string $model, int $carYear, TaxCalculator $taxCalculator)
     {
         $this->model = $model;
         $this->year = $carYear;
+        $this->taxCalculator = $taxCalculator;
     }
 
     public function getName()
@@ -27,13 +27,8 @@ abstract class CarAbstract {
         return $this->model . ' has produced ' . $this->year . ' and brand new price is $' . $this->getPrice();
     }
 
-    // public function showTaxes() {
-    //     return "Regular tax on price of $4000" . $this->getPrice() . " is 2%";
-    // }
-
-    public function showTaxes(float $rate)
-    {
-        $tax = $this->calculateTax($rate);
+    public function showTaxes(float $rate) {
+        $tax = $this->taxCalculator->calculateTax($this->getPrice(), $rate);
         return "Regular tax on price of $" . $this->getPrice() . " is $" . $tax;
     }
 }
