@@ -10,6 +10,9 @@ class Calculator {
 
     public function subtract($a, $b)
     {
+        if($a < 0) {
+            throw new InvalidArgumentException('First number must be positive');
+        }
         return $a - $b;
     }
 
@@ -18,9 +21,9 @@ class Calculator {
         return $a * $b;
     }
 
-    public function divide ($a, $b) 
+    public function divide(int $a, int $b): int 
     {
-        if($a == 0 || $b == 0) {
+        if ($b == 0) {
             throw new InvalidArgumentException('Dividing by 0 is always 0');
         }
         return $a / $b;

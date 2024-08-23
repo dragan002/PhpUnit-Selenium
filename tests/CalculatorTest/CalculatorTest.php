@@ -97,4 +97,24 @@ class CalculatorTest extends TestCase
     public function testPower() {
         $this->assertEquals(9, $this->calculator->power(3));
     }
+
+    // public function testDivideByZero()
+    // {
+    //     $this->expectException(InvalidArgumentException::class);
+    //     $this->expectExceptionMessage('ividing by 0 is always 0');
+    //     $this->calculator->divide(10, 0);  
+    // }
+
+    public function testNegativeFirstNumber(){
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('First number must be positive');
+        $this->calculator->subtract(3, 2);
+    }
+
+    public function testDivideByZero()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Dividing by 0 is always 0');
+        $this->calculator->divide(10, 0);  
+    }
 }
