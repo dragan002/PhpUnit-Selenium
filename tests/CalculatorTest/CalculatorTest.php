@@ -11,28 +11,87 @@ class CalculatorTest extends TestCase
         $this->calculator = new Calculator;
     }
 
-    public function testAdd() {
-        $result = $this->calculator->add(2,3);
-        $this->assertEquals(5, $result, 'Adding 2 + 3 = 5');
+    /**
+     * @dataProvider additionProvider
+     */
+    public function testAdd($a, $b, $expected)
+    {
+        $result = $this->calculator->add($a, $b);
+        $this->assertEquals($expected, $result);
     }
 
-    public function testSubtract()
+    public static function additionProvider()
     {
-        $result = $this->calculator->subtract(5, 3);
-        $this->assertEquals(2, $result, "5 - 3 has to be 2");
+        return [
+            'both positive' => [2, 3, 5],
+            'positive and negative' => [2, -3, -1],
+            'both negative' => [-2, -3, -5],
+            'zero and positive' => [0, 5, 5],
+            'zero and negative' => [0, -5, -5],
+        ];
     }
 
+    /** 
+    * @dataProvider subtractProvider
+    */
 
-    public function testMultiply() 
+    public function testSubtract($a, $b, $expected)
     {
-        $result = $this->calculator->multiply(10, 2);
-        $this->assertEquals(20, $result, 'Multiplying 10 by 2 should equal 20');
+        $result = $this->calculator->subtract($a, $b);
+        $this->assertEquals($expected, $result);
     }
 
-    public function testDivide() 
+    public static function subtractProvider()
     {
-        $result = $this->calculator->divide(90, 3);
-        $this->assertEquals(30, $result, 'Dividing 90 by 3 should equal 30');
+        return [
+            'positive and positive' => [5, 3, 2],
+            'positive and negative' => [5, -3, 8],
+            'negative and positive' => [-5, 3, -8],
+            'negative and negative' => [-5, -3, -2],
+            'zero and positive' => [0, 5, -5],
+            'zero and negative' => [0, -5, 5],
+        ];
+    }
+
+    /** 
+     * @dataProvider multiplyProvider 
+     */ 
+
+    public function testMultiply($a, $b, $expected) 
+    {
+        $result = $this->calculator->multiply($a, $b);
+        $this->assertEquals($expected, $result);
+    }
+
+    public static function multiplyProvider() {
+        return [
+            'positive and positive' => [2, 3, 6],
+            'positive and negative' => [2, -3, -6],
+            'negative and positive' => [-2, 3, -6],
+            'negative and negative' => [-2, -3, 6],
+            'zero and positive' => [0, 5, 0],
+            'zero and negative' => [0, -5, 0],
+        ];
+    }
+
+    /**
+     * @dataProvider  divideProvider
+     */
+
+    public function testDivide($a, $b, $expected) 
+    {
+        $result = $this->calculator->divide($a, $b);
+        $this->assertEquals($expected, $result);
+    }
+
+    public static function divideProvider()
+    {
+        return [
+            'positive and positive' => [90, 3, 30],
+            'positive and negative' => [90, -3, -30],
+            'negative and positive' => [-90, 3, -30],
+            'negative and negative' => [-90, -3, 30],
+        ];
     }
 
     public function testPower() {
