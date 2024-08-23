@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Do not change this class. This is only for simulating the enviromnent.
- */
 class DataSource {
 
     public $data = [
@@ -34,29 +31,24 @@ class DataSource {
 }
 
 
-/**
- * This is the class that you should refactor so that the entire internal logic is fully covered by unit test. You must not change the class functionality. It must work 100% the same.
- */
-class UnitUntestable {
 
-    public function getRandomQoute()
+
+class RandomNumber {
+
+    public function getRandomNumber($a, $b)
     {
-        $body = 'Today the quote from ';
-
-        $random = mt_rand(0,2);
-        if($random == 0) $body .= 'one the famous physicist '.$person='Albert Einstein';
-        elseif($random == 1) $body .= 'head of the Catholic Church and sovereign of the Vatican City '.$person='Pope John Paul II';
-        elseif($random == 2) $body .= 'the co-founder of Microsoft Corporation '.$person='Bill Gates';
-
-        $quotes = new DataSource;
-        $quote = $quotes->fetchQuote($person);
-
-        return $body.': '.$quote;
-
+        return mt_rand($a, $b);
     }
 }
 
 
-// example usage:
-$obj = new UnitUntestable();
-echo $obj->getRandomQoute();
+
+
+
+
+// example unit test:
+
+
+
+
+
