@@ -16,6 +16,7 @@ class UsefulAnnotationTest extends TestCase {
     /**
      * @after
      */
+    
      public function runAfterEachTestMethod()
      {
         unset($this->value);
