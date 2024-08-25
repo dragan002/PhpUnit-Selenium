@@ -18,5 +18,7 @@ class CarTest extends TestCase {
 
         // Test showTaxes with a rate of 2%
         $this->assertSame('Regular tax on price of $100 is $2', $car->showTaxes(2));
+
+        $this->assertSame('Golf 6', $car->getName());
     }
 }
