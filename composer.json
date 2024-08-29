@@ -1,7 +1,7 @@
 {
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "phpunit/phpunit-selenium": "^9.0"
+        "phpunit/phpunit-selenium": "^9.0",
+        "phpunit/phpunit": "^9.0"
     },
 
     "autoload": {
@@ -10,5 +10,9 @@
             "src/Exceptions",
             "tests/traits"
         ]
+    },
+    "require": {
+        "facebook/webdriver": "^1.1",
+        "php-webdriver/webdriver": "^1.15"
     }
 }
