@@ -46,15 +46,28 @@ class FirstTest extends TestCase {
     //     $this->assertEquals('Home', $aText);
     // }
 
-               /**
+    /**
      * @covers firstTest::testGettingNoNOrderElementsA
      */
 
-     public function testGettingNoNOrderElementsA() {
-         $a2 = $this->webDriver->findElement(WebDriverBy::cssSelector('ul li:nth-of-type(2) a'));
-         $a2Text = $a2->getText();
-         $this->assertEquals('About', $a2Text);
-     }
+    //  public function testGettingNoNOrderElementsA() {
+    //      $a2 = $this->webDriver->findElement(WebDriverBy::cssSelector('ul li:nth-of-type(2) a'));
+    //      $a2Text = $a2->getText();
+    //      $this->assertEquals('About', $a2Text);
+    //  }
+
+                /**
+     * @covers firstTest::testAllLinks
+     */
+
+     public function testAllTags() {
+        $tags = $this->webDriver->findElements(WebDriverBy::cssSelector('a'));
+        foreach($tags as $index => $tag) {
+            $tagText = $tag->getText();
+            echo "Tag {$index}: {$tagText}\n";
+        }
+
+        $this->assertGreaterThan(0, count($tags), "No <a> tags found on the page.");     }
 
     public function tearDown(): void {
         $this->webDriver->quit();
