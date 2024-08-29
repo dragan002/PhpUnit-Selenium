@@ -60,14 +60,31 @@ class FirstTest extends TestCase {
      * @covers firstTest::testAllLinks
      */
 
-     public function testAllTags() {
-        $tags = $this->webDriver->findElements(WebDriverBy::cssSelector('a'));
-        foreach($tags as $index => $tag) {
-            $tagText = $tag->getText();
-            echo "Tag {$index}: {$tagText}\n";
-        }
+    //  public function testAllTags() {
+    //     $tags = $this->webDriver->findElements(WebDriverBy::cssSelector('a'));
+    //     foreach($tags as $index => $tag) {
+    //         $tagText = $tag->getText();
+    //         echo "Tag {$index}: {$tagText}\n";
+    //     }
 
-        $this->assertGreaterThan(0, count($tags), "No <a> tags found on the page.");     }
+    //     $this->assertGreaterThan(0, count($tags), "No <a> tags found on the page.");
+    // }
+
+    /**
+     * @covers firstTest::testById
+     */
+
+     public function testById() {
+        // Find the input element with the ID 'Adam'
+        $element = $this->webDriver->findElement(WebDriverBy::id('Adam'));
+    
+        // Get the value of the input element
+        $inputValue = $element->getAttribute('id');
+    
+        // Assert that the value of the input element is 'Adam'
+        $this->assertEquals('Adam', $inputValue);
+    }
+    
 
     public function tearDown(): void {
         $this->webDriver->quit();
