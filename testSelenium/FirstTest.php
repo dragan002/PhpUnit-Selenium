@@ -39,12 +39,22 @@ class FirstTest extends TestCase {
      * @covers firstTest::testGettingElementsA
      */
 
-    public function testGettingElementsA()
-    {
-        $a = $this->webDriver->findElement(WebDriverBy::cssSelector('ul li a'));
-        $aText = $a->getText();
-        $this->assertEquals('Home', $aText);
-    }
+    // public function testGettingElementsA()
+    // {
+    //     $a = $this->webDriver->findElement(WebDriverBy::cssSelector('ul li a'));
+    //     $aText = $a->getText();
+    //     $this->assertEquals('Home', $aText);
+    // }
+
+               /**
+     * @covers firstTest::testGettingNoNOrderElementsA
+     */
+
+     public function testGettingNoNOrderElementsA() {
+         $a2 = $this->webDriver->findElement(WebDriverBy::cssSelector('ul li:nth-of-type(2) a'));
+         $a2Text = $a2->getText();
+         $this->assertEquals('About', $a2Text);
+     }
 
     public function tearDown(): void {
         $this->webDriver->quit();
