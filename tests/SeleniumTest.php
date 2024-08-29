@@ -1,29 +1,29 @@
 <?php
+
+use PHPUnit\Framework\TestCase;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Facebook\WebDriver\WebDriverBy;
-use PHPUnit\Framework\TestCase;
 
-class SeleniumTest extends TestCase
-{
+class FirstTest extends TestCase {
+
     protected $webDriver;
 
-    protected function setUp(): void
-    {
-        $host = 'http://localhost:4444'; // Selenium server URL
-        $capabilities = DesiredCapabilities::firefox(); // or chrome()
+    public function setUp(): void {
+        $host = 'http://localhost:4444'; // Selenium server
+        $capabilities = DesiredCapabilities::firefox();
         $this->webDriver = RemoteWebDriver::create($host, $capabilities);
+        $this->webDriver->get("http://www.google.com/");
     }
 
-    public function testTitle()
-    {
-        $this->webDriver->get('https://www.example.com');
+    /**
+     * @covers FirstTest::testTitle
+     */
+    public function testTitle() {
         $title = $this->webDriver->getTitle();
-        $this->assertEquals('Example Domain', $title);
+        $this->assertEquals('Google', $title);
     }
 
-    protected function tearDown(): void
-    {
+    public function tearDown(): void {
         $this->webDriver->quit();
     }
 }
